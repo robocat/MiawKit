@@ -2,8 +2,8 @@
 
 require 'set'
 
-if (ARGV.count == 1) then
-  puts("Usage: #{ ARGV[0] } command")
+if (ARGV.count == 0) then
+  puts("Usage: #{ $PROGRAM_NAME } command")
   puts("Commands:")
   puts("\tgenerate [default_lang]")
   puts("\t\tGenerates a header with all localization keys.")
@@ -62,5 +62,4 @@ def generate_keys_file()
   f.write("#endif                                         \n")
 
   f.close()
-  
 end
