@@ -8,8 +8,13 @@ Pod::Spec.new do |s|
   s.source            = { :git => 'https://github.com/robocat/MiawKit.git', :branch => 'master' }
   s.social_media_url  = 'http://twitter.com/robocat'
 
-  s.platform          = :ios, '6.0'
   s.requires_arc      = true
 
-  s.source_files      = 'MiawKit/**/*.{h,m}'
+  s.source_files      = 'MiawKit/*.{h,m}'
+  
+  s.ios.deployment_target   = '6.0'
+  s.osx.deployment_target   = '10.7'
+
+  s.ios.source_files        = 'MiawKit/UIKit+MKLocalization/*.{h,m}'
+  s.osx.source_files        = 'MiawKit/AppKit+MKLocalization/*.{h,m}'
 end
