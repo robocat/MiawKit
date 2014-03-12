@@ -16,7 +16,30 @@
 }
 
 - (void)mk_localize:(NSString *)localization {
-	[self setTitle:MKLocalized(localization) forState:UIControlStateNormal];
+    [self mk_localize:localization fromTable:nil];
 }
+
+- (void)mk_localizeWithFormat:(NSString *)localization, ... {
+    va_list vars;
+    va_start(vars, str);
+
+    [self mk_localizeFromTable:nil withFormat:localization, vars];
+
+    va_end(vars);
+}
+
+- (void)mk_localize:(NSString *)localization fromTable:(NSString *)table {
+    [self setTitle:MKLocalizedFromTable(localization, table) forState:UIControlStateNormal];
+}
+
+- (void)mk_localizeFromTable:(NSString *)table withFormat:(NSString *)localization, ... {
+    va_list vars;
+    va_start(vars, str);
+
+    [self setTitle:MKLocalizedFromTableWithFormat(localization, table, vars) forState:UIControlStateNormal];
+
+    va_end(vars);
+}
+
 
 @end

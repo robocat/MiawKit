@@ -14,4 +14,12 @@
 
 - (void)mk_localize:(NSString *)localization;
 
+- (void)mk_localizeWithFormat:(NSString *)localization, ...;
+
+- (void)mk_localize:(NSString *)localization
+          fromTable:(NSString *)table;
+
+- (void)mk_localizeFromTable:(NSString *)table
+                  withFormat:(NSString *)localization, ...;
+
 @end
