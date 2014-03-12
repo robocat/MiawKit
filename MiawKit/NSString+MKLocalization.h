@@ -10,6 +10,6 @@
 
 @interface NSString (MKLocalization)
 
-- (NSString *)localizedString;
+- (NSString *)mk_localizedString;
 
 @end

@@ -7,39 +7,42 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MKFunctions.h"
 
-void MKLocalizationSetPreferredLanguage(NSString *language);
-NSString *MKLocalizationPreferredLanguage(void);
+@protocol MKLocalizable;
 
-NSString *MKLocalizationNameForLanguage(NSString *language);
-NSString *MKLocalizationNameForPrefferedLanguage(void);
+/*!
+ * Utility localization class that provides objects with a way
+ * to register for localizations and language updates.
+ */
+@interface MKLocalization : NSObject
 
-NSString *MKLocalized(NSString *str);
-NSString *MKLocalizedFromTable(NSString *str, NSString *table);
+/*!
+ * Register an object implementing the MKLocalizable protocol
+ * for localization. Calling this method will invoke the
+ * -shouldLocalize method of the passed object immediately. It
+ * will also invoke the method if the preferred language changes.
+ * @param localizableObject The object to register for localization
+ */
++ (void)registerForLocalization:(id<MKLocalizable>)localizableObject;
 
-NSString *MKLocalizedWithFormat(NSString *str, ...);
-NSString *MKLocalizedFromTableWithFormat(NSString *str, NSString *table, ...);
-
-void MKLocalizedLabel(UILabel *label, NSString *str);
-void MKLocalizedLabelFromTable(UILabel *label, NSString *str, NSString *table);
-void MKLocalizedLabelWithFormat(UILabel *label, NSString *str, ...);
-void MKLocalizedLabelFromTableWithFormat(UILabel *label, NSString *str, NSString *table, ...);
-
-void MKLocalizedButton(UIButton *button, NSString *str);
-void MKLocalizedButtonFromTable(UIButton *button, NSString *str, NSString *table);
-void MKLocalizedButtonWithFormat(UIButton *button, NSString *str, ...);
-void MKLocalizedButtonFromTableWithFormat(UIButton *button, NSString *str, NSString *table, ...);
-
-@protocol MKLocalizable <NSObject>
-
-- (void)shouldLocalize;
+/*!
+ * Change the preferred language to a given language. Changing the
+ * preferred language will invoke the -shouldLocalize method of all
+ * registered localizable objects.
+ * @param language The language identifier for the new language
+ */
++ (void)changeLocalizationTo:(NSString *)language;
 
 @end
 
-@interface MKLocalization : NSObject
+/*!
+ * Protocol for localizable objects. Objects that implement this
+ * protocol should also be registered with
+ * [MKLocalization registerForLocalization:].
+ */
+@protocol MKLocalizable <NSObject>
 
-+ (void)registerForLocalization:(id<MKLocalizable>)localizableObject;
-
-+ (void)changeLocalizationTo:(NSString *)language;
+- (void)shouldLocalize;
 
 @end

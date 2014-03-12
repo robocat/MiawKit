@@ -11,7 +11,7 @@
 
 @implementation NSString (MKLocalization)
 
-- (NSString *)localizedString {
+- (NSString *)mk_localizedString {
 	return MKLocalized(self);
 }
 

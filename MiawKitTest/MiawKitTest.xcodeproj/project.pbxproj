@@ -25,6 +25,7 @@
 		78399C4418D077830008E414 /* UIButton+MKLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 78399C4018D077820008E414 /* UIButton+MKLocalization.m */; };
 		78399C4518D077830008E414 /* UILabel+MKLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 78399C4218D077820008E414 /* UILabel+MKLocalization.m */; };
 		78399C4818D078300008E414 /* NSString+MKLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 78399C4718D078300008E414 /* NSString+MKLocalization.m */; };
+		78399C4B18D07C7D0008E414 /* MKFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 78399C4A18D07C7D0008E414 /* MKFunctions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		78399C4218D077820008E414 /* UILabel+MKLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+MKLocalization.m"; sourceTree = "<group>"; };
 		78399C4618D078300008E414 /* NSString+MKLocalization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MKLocalization.h"; sourceTree = "<group>"; };
 		78399C4718D078300008E414 /* NSString+MKLocalization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MKLocalization.m"; sourceTree = "<group>"; };
+		78399C4918D07C7D0008E414 /* MKFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKFunctions.h; sourceTree = "<group>"; };
+		78399C4A18D07C7D0008E414 /* MKFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKFunctions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,11 +171,13 @@
 		78399C3B18D077820008E414 /* MiawKit */ = {
 			isa = PBXGroup;
 			children = (
-				78399C3C18D077820008E414 /* MKLocalization.h */,
-				78399C3D18D077820008E414 /* MKLocalization.m */,
 				78399C3E18D077820008E414 /* UIKit+MKLocalization */,
 				78399C4618D078300008E414 /* NSString+MKLocalization.h */,
 				78399C4718D078300008E414 /* NSString+MKLocalization.m */,
+				78399C3C18D077820008E414 /* MKLocalization.h */,
+				78399C3D18D077820008E414 /* MKLocalization.m */,
+				78399C4918D07C7D0008E414 /* MKFunctions.h */,
+				78399C4A18D07C7D0008E414 /* MKFunctions.m */,
 			);
 			name = MiawKit;
 			path = ../MiawKit;
@@ -288,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				78399C4318D077820008E414 /* MKLocalization.m in Sources */,
+				78399C4B18D07C7D0008E414 /* MKFunctions.m in Sources */,
 				78399C1D18D071E70008E414 /* MKTViewController.m in Sources */,
 				78399C4818D078300008E414 /* NSString+MKLocalization.m in Sources */,
 				78399C1318D071E70008E414 /* main.m in Sources */,
