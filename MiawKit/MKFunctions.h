@@ -42,4 +42,13 @@ NSString *MKLocalized(NSString *str);
 NSString *MKLocalizedFromTable(NSString *str, NSString *table);
 
 NSString *MKLocalizedWithFormat(NSString *str, ...);
+
+/*!
+ * Get a formatted localized version of the string for the
+ * given key residing in the specified table.
+ * @param str The key for the localized string
+ * @param table The table to search. If nil the Localizable.strings table is searched
+ * @return The formatted localized string. If no string is found for the preferred language
+ * a version in english is returned. If none exists the returned string will be ---.
+ */
 NSString *MKLocalizedFromTableWithFormat(NSString *str, NSString *table, ...);
