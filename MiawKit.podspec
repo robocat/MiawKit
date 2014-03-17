@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
   s.authors           = { 'Robocat' => 'hello@robo.cat' }
   s.source            = { :git => 'https://github.com/robocat/MiawKit.git', :branch => 'master' }
   s.social_media_url  = 'http://twitter.com/robocat'
+  s.screenshot        = "http://cl.ly/image/0K1x1L0F2p1C/Bh-2X4RIUAEovzh.png"
 
   s.requires_arc      = true
 
