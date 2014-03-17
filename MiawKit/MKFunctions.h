@@ -38,6 +38,16 @@ NSString *MKLocalizationNameForLanguage(NSString *language);
 NSString *MKLocalizationNameForPrefferedLanguage(void);
 
 /*!
+ * Get the fully qualified name for a given language identifier
+ * in the language of the given other language.
+ * e.g. given the identifier "da" and "en" the answer will be
+ * "Danish"
+ * @param language The identifier for the language
+ * @return Fully qualified name for the language
+ */
+NSString *MKLocalizationNameForLanguageInLanguage(NSString *language, NSString *inLanguage);
+
+/*!
  * Get a localized version of the string for the given key.
  * @param str The key for the localized string
  * @return The formatted localized string. If no string is found for the preferred language

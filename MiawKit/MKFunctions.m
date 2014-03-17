@@ -20,7 +20,12 @@ NSString *MKLocalizationNameForPrefferedLanguage(void) {
 }
 
 NSString *MKLocalizationNameForLanguage(NSString *language) {
-    NSString *languageName = [[NSLocale localeWithLocaleIdentifier:language] displayNameForKey:NSLocaleIdentifier value:language];
+    return MKLocalizationNameForLanguageInLanguage(language, MKLocalizationPreferredLanguage());
+}
+
+NSString *MKLocalizationNameForLanguageInLanguage(NSString *language, NSString *inLanguage) {
+    NSLocale *currentLocale = [NSLocale localeWithLocaleIdentifier:inLanguage];
+    NSString *languageName = [currentLocale displayNameForKey:NSLocaleIdentifier value:language];
     languageName = [languageName stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:[[languageName uppercaseString] substringToIndex:1]];
     return languageName;
 }
