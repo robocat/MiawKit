@@ -2,24 +2,18 @@
 
 require 'set'
 
-if (ARGV.count == 0) then
-  puts("Usage: #{ $PROGRAM_NAME } command")
-  puts("Commands:")
-  puts("\tgenerate [default_lang]")
-  puts("\t\tGenerates a header with all localization keys.")
-  puts("\t\tSet default_lang to the code of your development language, default is en.")
-end
-
-if (ARGV[1] == "generate") then
-  generate_keys_file()
-end
-
 def generate_keys_file()
   strings = {}
 
   default_language = "en"
 
-  Dir.glob("*.lproj/*.strings").each do |filename|
+  Dir.glob("**/*.lproj/*.strings").each do |filename|
+    if filename.start_with?("Pods")
+      next
+    end
+
+    puts "Processing: #{filename}"
+
     lang = filename[/[^\.]*/]
   
     File.open(filename, "r:UTF-8") do |f|
@@ -62,4 +56,16 @@ def generate_keys_file()
   f.write("#endif                                         \n")
 
   f.close()
+end
+
+if (ARGV.count == 0) then
+  puts("Usage: #{ $PROGRAM_NAME } command")
+  puts("Commands:")
+  puts("\tgenerate [default_lang]")
+  puts("\t\tGenerates a header with all localization keys.")
+  puts("\t\tSet default_lang to the code of your development language, default is en.")
+end
+
+if (ARGV[0] == "generate") then
+  generate_keys_file()
 end
