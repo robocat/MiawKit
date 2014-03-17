@@ -37,18 +37,43 @@ NSString *MKLocalizationNameForLanguage(NSString *language);
  */
 NSString *MKLocalizationNameForPrefferedLanguage(void);
 
-
+/*!
+ * Get a localized version of the string for the given key.
+ * @param str The key for the localized string
+ * @return The formatted localized string. If no string is found for the preferred language
+ * a version in english is returned. If none exists it will return nil.
+ * @discussion The preferred use of this is to only pass in strings defined in the header generated with the miaw tool.
+ */
 NSString *MKLocalized(NSString *str);
+
+/*!
+ * Get a localized version of the string for the
+ * given key residing in the specified table.
+ * @param str The key for the localized string
+ * @param table The table to search. If nil, the Localizable.strings table is searched
+ * @return The formatted localized string. If no string is found for the preferred language
+ * a version in english is returned. If none exists it will return nil.
+ * @discussion The preferred use of this is to only pass in strings defined in the header generated with the miaw tool.
+ */
 NSString *MKLocalizedFromTable(NSString *str, NSString *table);
 
+/*!
+ * Get a formatted localized version of the string for the
+ * given key.
+ * @param str The key for the localized string
+ * @return The formatted localized string. If no string is found for the preferred language
+ * a version in english is returned. If none exists it will return nil.
+ * @discussion The preferred use of this is to only pass in strings defined in the header generated with the miaw tool.
+ */
 NSString *MKLocalizedWithFormat(NSString *str, ...);
 
 /*!
  * Get a formatted localized version of the string for the
  * given key residing in the specified table.
  * @param str The key for the localized string
- * @param table The table to search. If nil the Localizable.strings table is searched
+ * @param table The table to search. If nil, the Localizable.strings table is searched
  * @return The formatted localized string. If no string is found for the preferred language
- * a version in english is returned. If none exists the returned string will be ---.
+ * a version in english is returned. If none exists it will return nil.
+ * @discussion The preferred use of this is to only pass in strings defined in the header generated with the miaw tool.
  */
 NSString *MKLocalizedFromTableWithFormat(NSString *str, NSString *table, ...);

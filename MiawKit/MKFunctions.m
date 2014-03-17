@@ -41,7 +41,7 @@ NSString *MKLocalizedFromTable(NSString *str, NSString *table) {
 	
 	if (!string || [string isEqualToString:MK_NOT_AVAILABLE]) {
 		NSString *path = [[NSBundle mainBundle] pathForResource:@"en" ofType:@"lproj"];
-		return [[NSBundle bundleWithPath:path] localizedStringForKey:str value:@"---" table:table]?: @"---";
+		return [[NSBundle bundleWithPath:path] localizedStringForKey:str value:nil table:table];
 	}
 	
     return string;
