@@ -21,7 +21,7 @@
 
 - (void)mk_localizeWithFormat:(NSString *)localization, ... {
     va_list vars;
-    va_start(vars, str);
+    va_start(vars, localization);
 
     [self mk_localizeFromTable:nil withFormat:localization, vars];
 
@@ -34,7 +34,7 @@
 
 - (void)mk_localizeFromTable:(NSString *)table withFormat:(NSString *)localization, ... {
     va_list vars;
-    va_start(vars, str);
+    va_start(vars, localization);
 
     [self setText:MKLocalizedFromTableWithFormat(localization, table, vars)];
 
