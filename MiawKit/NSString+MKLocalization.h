@@ -10,6 +10,11 @@
 
 @interface NSString (MKLocalization)
 
+/*!
+ * Returns a localized string, using self as the key.
+ * @return A localized string.
+ * @see MKLocalizedString
+ */
 - (NSString *)mk_localizedString;
 
 @end
