@@ -31,3 +31,9 @@ static NSString * const RK_FACEBOOK_INVITE_TITLE = @"RK_FACEBOOK_INVITE_TITLE";
 XCode is even smart enough to show you the documentation so you can see the translation for a key by alt-clicking any localization key constant.
 
 ![](http://f.cl.ly/items/3K0p2Z3D1t2h013p1p17/Screen%20Shot%202014-05-13%20at%2011.42.32.png)
+
+Make sure that you copy the ``miaw`` file into the root directory of your project. and run the command:
+
+    miaw generate
+    
+Which generates the ``MKLocalizaableKeys.h`` file in your root directory. Include that file in your Xcode project and you're all good to go.
