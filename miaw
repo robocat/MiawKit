@@ -15,7 +15,7 @@ def generate_keys_file(path = ".", default_language = "en", verbose = true, incl
       puts "Processing: #{filename}"
     end
 
-    lang = filename[/[^\.]*/]
+    lang = filename[/[^\.]*/].split("/").last
   
     File.open(filename, "r:UTF-8") do |f|
       contents = f.read
