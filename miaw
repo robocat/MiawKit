@@ -4,6 +4,15 @@ require 'set'
 
 def generate_keys_file()
   strings = {}
+  lang_count = 0
+  all_langs = []
+
+  strings.each do |key, value|
+    if (value.count > lang_count) then
+      lang_count = value.count
+      all_langs = value.keys
+    end
+  end
 
   default_language = "en"
 
@@ -36,6 +45,11 @@ def generate_keys_file()
   f.write("\n")
 
   strings.each do |key, value|
+    if (value.count != lang_count) then
+      missing_langs = all_langs.inject([]) { |a, v| if not value.keys.include? v then a << v else a end }
+      f.write("#warning Missing languages #{ missing_langs.join(', ') } for key '#{key}'\n");
+    end
+
     f.write("/*!\n")
   
     value.each do |lang, desc|
