@@ -34,6 +34,6 @@ XCode is even smart enough to show you the documentation so you can see the tran
 
 Make sure that you copy the ``miaw`` file into the root directory of your project. and run the command:
 
-    miaw generate
+    miaw --generate
     
 Which generates the ``MKLocalizaableKeys.h`` file in your root directory. Include that file in your Xcode project and you're all good to go.
