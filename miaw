@@ -9,13 +9,6 @@ def generate_keys_file(path = ".", default_language = "en", verbose = true, incl
   lang_count = 0
   all_langs = []
 
-  strings.each do |key, value|
-    if (value.count > lang_count) then
-      lang_count = value.count
-      all_langs = value.keys
-    end
-  end
-
   Dir.glob("**/*.lproj/*.strings").each do |filename|
     if filename.start_with?("Pods")
       next
@@ -38,6 +31,13 @@ def generate_keys_file(path = ".", default_language = "en", verbose = true, incl
         strings[key] ||= {}
         strings[key][lang] = value
       end
+    end
+  end
+
+  strings.each do |key, value|
+    if (value.count > lang_count) then
+      lang_count = value.count
+      all_langs = value.keys
     end
   end
 
