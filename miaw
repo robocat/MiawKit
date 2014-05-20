@@ -25,7 +25,11 @@ def generate_keys_file(path = ".", default_language = "en", verbose = true, incl
       puts "Processing: #{ filename }"
     end
 
-    tables << File.basename(filename, ".strings")
+    table_basename = File.basename(filename, ".strings")
+    if not tables.include? table_basename
+      tables << table_basename
+    end
+    
     lang = filename[/[^\.]*/].split("/").last
     
     File.open(filename, "r:UTF-8") do |f|
