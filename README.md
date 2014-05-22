@@ -39,3 +39,65 @@ Make sure that you copy the ``miaw`` file into the root directory of your projec
 Which generates the ``MKLocalizaableKeys.h`` file in your root directory. Include that file in your Xcode project and you're all good to go.
 
 Run `miaw -h` for more information on how to use the ``miaw`` file.
+
+## MKLocalization
+
+MiawKit provides a simple API to register for localization changes. Classes in your codebase that needs to be updated with localization once they're displayed or when the language is changed can register for changes using ``MKLocalization``'s  ``registerForLocalization:`` method:
+
+```objc
+/*!
+ * Register an object implementing the MKLocalizable protocol
+ * for localization. Calling this method will invoke the
+ * -shouldLocalize method of the passed object immediately. It
+ * will also invoke the method if the preferred language changes.
+ * @param localizableObject The object to register for localization
+ */
++ (void)registerForLocalization:(id<MKLocalizable>)localizableObject;
+```
+
+Your class then needs to conform to the ``MKlocalizable`` protocol which calls ``shouldLocalize`` when localization changes are needed. Here is an example of how you might use the API in a ``UIViewController``.
+
+```objc
+- (void)viewDidLoad {
+    [self viewDidLoad];
+    
+    [MKLocalization registerForLocalization:self];
+}
+
+- (void)shouldLocalize {
+    [self.awesomeLabel mk_localize];
+    [self.awesomeOtherLabel mk_localizeWithFormat:MK_AWESOME_OTHER_LABEL, self.awesomeValue];
+}
+```
+
+If you want to change the language used within your app you can use ``changeLocalizationTo:`` to change the language. All registered objects will be relocalized.
+
+```objc
+/*!
+ * Change the preferred language to a given language. Changing the
+ * preferred language will invoke the -shouldLocalize method of all
+ * registered localizable objects.
+ * @param language The language identifier for the new language
+ */
++ (void)changeLocalizationTo:(NSString *)language;
+```
+
+## UIKit Categories
+
+MiawKit provides useful category methods for [UIButton](MiawKit/UIKit+MKLocalization/UIButton+MKLocalization.h) and [UILabel](MiawKit/UIKit+MKLocalization/UIlabel+MKLocalization.h) to ease localization of UI elements. Both categories share methods for localizing using the title as key:
+
+```objc
+[self.awesomeLabel mk_localize];
+```
+
+or given the key:
+
+```objc
+[self.awesomeLabel mk_localize:MK_AWESOME_BUTTON];
+```
+
+or with a formatted string:
+
+```objc
+[self.awesomeLabel mk_localizeWithFormat:MK_AWESOME_BUTTON, self.awesomeValue];
+```
