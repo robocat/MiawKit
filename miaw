@@ -81,7 +81,7 @@ def generate_keys_file(opts)
     end
   
     f.write(" */\n")
-    f.write("static NSString * const #{key.gsub("%", "").gsub("@", "X")} = @\"#{ key }\";\n\n")
+    f.write("static NSString * const #{key.gsub("%", "").gsub("@", "X").gsub(".", "_").gsub(/^[\d]/, 'n\0')} = @\"#{ key }\";\n\n")
   end
 
   f.write("                                               \n")
