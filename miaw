@@ -28,6 +28,8 @@ def generate_keys_file(opts)
     File.open(filename, "r:UTF-8") do |f|
       contents = f.read
       contents.scan(/\"([^\"]*)\"\s=\s\"([^\"]*)\";/) do |key, value|
+      	key = key.split().join("_")
+
         strings[key] ||= {}
         strings[key][lang] = value
       end
