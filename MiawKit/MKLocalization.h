@@ -27,6 +27,14 @@
 + (void)registerForLocalization:(id<MKLocalizable>)localizableObject;
 
 /*!
+ * Unregister an object from receiving localization updates. This is
+ * is not necessary to do unless you really don't want to receive updates.
+ * Objects being dealloc'ed will automatically stop receiving updates.
+ * @param localizableObject The object to unregister for localization
+ */
++ (void)unregisterForLocalization:(id<MKLocalizable>)localizableObject;
+
+/*!
  * Change the preferred language to a given language. Changing the
  * preferred language will invoke the -shouldLocalize method of all
  * registered localizable objects.

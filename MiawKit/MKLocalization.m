@@ -41,6 +41,23 @@
 	[localizableObject shouldLocalize];
 }
 
++ (void)unregisterForLocalization:(id<MKLocalizable>)localizableObject {
+    NSInteger index = -1;
+    
+    NSInteger i = 0;
+    for (id<MKLocalizable> obj in [[self sharedInstance] localizables]) {
+        if (obj == localizableObject) {
+            index = i;
+        }
+        
+        i++;
+    }
+    
+    if (index != -1) {
+        [[[self sharedInstance] localizables] removePointerAtIndex:index];
+    }
+}
+
 + (void)changeLocalizationTo:(NSString *)language {
 	MKLocalizationSetPreferredLanguage(language);
 	
