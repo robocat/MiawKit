@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name              = 'MiawKit'
-  s.version           = 'v1.2'
+  s.version           = '1.2'
   s.license           = { :type => 'MIT', :file => 'LICENSE' }
   s.summary           = 'A set of utilities that gives localization in Objective-C a little more miaw'
   s.homepage          = 'https://github.com/robocat/MiawKit'
