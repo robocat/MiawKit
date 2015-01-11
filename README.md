@@ -4,9 +4,13 @@ MiawKit is a collection of utilities that makes life a little easier when locali
 
 ## Getting started
 
-As modern 21st century brogrammer you're of cause using [CocoaPods](http://cocoapods.org)! Right, right?
+MiawKit supports both [CocoaPods](http://cocoapods.org) and [Carthage](http://github.com/carthage/carthage). If you use CococaPods add this line to your ``Podfile``:
 
-    pod 'MiawKit', '~> 1.1'
+    pod 'MiawKit', '~> 1.2'
+
+If you use Carthage add this line to your ``Cartfile``:
+
+	github "robocat/MiawKit"
   
 If you're planning on using the scrit portion of MiawKit you will have to copy the [miaw script](miaw) into the root directory of your project manually.
 
