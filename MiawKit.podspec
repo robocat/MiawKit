@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name              = 'MiawKit'
-  s.version           = '1.2'
+  s.version           = '1.2.1'
   s.license           = { :type => 'MIT', :file => 'LICENSE' }
   s.summary           = 'A set of utilities that gives localization in Objective-C a little more miaw'
   s.homepage          = 'https://github.com/robocat/MiawKit'
   s.authors           = { 'Robocat' => 'hello@robo.cat' }
-  s.source            = { :git => 'https://github.com/robocat/MiawKit.git', :tag => 'v1.2' }
+  s.source            = { :git => 'https://github.com/robocat/MiawKit.git', :tag => 'v1.2.1' }
   s.social_media_url  = 'http://twitter.com/robocat'
   s.screenshot        = "http://cl.ly/image/0K1x1L0F2p1C/Bh-2X4RIUAEovzh.png"
 
