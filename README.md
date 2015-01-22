@@ -38,9 +38,11 @@ XCode is even smart enough to show you the documentation so you can see the tran
 
 Make sure that you copy the ``miaw`` file into the root directory of your project and run the command:
 
-    ./miaw --g
+    ./miaw --objc
     
-Which generates the ``MKLocalizaableKeys.h`` file in your root directory. Include that file in your Xcode project and you're all good to go.
+Which generates the ``MKLocalizaableKeys.h`` file in your root directory. Include that file in your Xcode project and you're all good to go. To generate a swift key file instead use:
+
+	./miaw --swift
 
 Run `miaw -h` for more information on how to use the ``miaw`` file.
 
