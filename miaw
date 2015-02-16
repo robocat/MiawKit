@@ -80,7 +80,7 @@ class Miaw
       f.write("    All translations:\n\n")
     
       value.each do |lang, desc|
-        f.write("    @b #{ lang }@: \"#{ desc }\"\n\n")
+        f.write("    #{ lang }: \"#{ desc }\"\n\n")
       end
     
       f.write("*/\n")
